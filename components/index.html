@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Shubham Studio</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__bar">
+        <a href="#"><span class="logo nav__logo">S</span> Shubham</a>
+
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-3-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#wedding_photos">Wedding Photos</a></li>
+        <li><a href="#birthday_photos">Birthday Photos</a></li>
+        <li><a href="#wedding_videos">Wedding Videos</a></li>
+        <li><a href="#portraits">Portraits</a></li>
+        <li><a href="#contact" class="btn">Contact</a></li>
+      </ul>
+      <div class="nav__admin-controls">
+        <button id="loginBtn" class="btn">Admin Login</button>
+        <button id="logoutBtn" class="btn hidden">Logout</button>
+      </div>
+      <a href="#contact" class="btn btn__large">Contact</a>
+    </nav>
+    <header class="section__container header__container" id="home">
+      <div class="header__image">
+        <img src="./assets/dp.png" alt="header" />
+      </div>
+      <div class="header__content">
+        <div>
+          <h1>Shubham<br />Art Studio<br />Photographer</h1>
+        </div>
+        <p class="section__description">
+          I'm a dedicated photographer with a creative flair for
+          turning camera shots into captivating experiences.
+        </p>
+      </div>
+    </header>
+
+    <section class="section__container portfolio__container" id="wedding_photos">
+      <div class="section__header-container">
+        <h2 class="section__header">Wedding Photos</h2>
+        <button class="btn add-item-btn hidden" data-category="wedding_photos">
+          <i class="ri-add-line"></i> Add Photo
+        </button>
+      </div>
+      <p class="section__description">
+        Capturing the love, joy, and unforgettable moments of your special day.
+      </p>
+      <div class="portfolio__grid" id="wedding_photos_grid">
+        <!-- Content loaded by JavaScript -->
+      </div>
+    </section>
+
+    <section
+      class="section__container portfolio__container"
+      id="birthday_photos"
+    >
+      <div class="section__header-container">
+        <h2 class="section__header">Birthday Photos</h2>
+        <button class="btn add-item-btn hidden" data-category="birthday_photos">
+          <i class="ri-add-line"></i> Add Photo
+        </button>
+      </div>
+      <p class="section__description">
+        Cherishing the milestones and memories, one snapshot at a time.
+      </p>
+      <div class="portfolio__grid" id="birthday_photos_grid">
+        <!-- Content loaded by JavaScript -->
+      </div>
+    </section>
+
+    <section
+      class="section__container portfolio__container"
+      id="wedding_videos"
+    >
+      <div class="section__header-container">
+        <h2 class="section__header">Wedding Videos</h2>
+        <button class="btn add-item-btn hidden" data-category="wedding_videos">
+          <i class="ri-add-line"></i> Add Video
+        </button>
+      </div>
+      <p class="section__description">
+        Bringing stories to life through motion, capturing the essence of the
+        moment.
+      </p>
+      <div class="portfolio__grid" id="wedding_videos_grid">
+        <!-- Content loaded by JavaScript -->
+      </div>
+    </section>
+
+    <section
+      class="section__container portfolio__container portraits"
+      id="portraits"
+    >
+      <div class="section__header-container">
+        <h2 class="section__header">Portraits</h2>
+        <button class="btn add-item-btn hidden" data-category="portraits">
+          <i class="ri-add-line"></i> Add Portrait
+        </button>
+      </div>
+      <p class="section__description">
+        Crafting professional headshots and portraits that capture your unique
+        personality.
+      </p>
+      <div class="portfolio__grid" id="portraits_grid">
+        <!-- Content loaded by JavaScript -->
+      </div>
+    </section>
+
+    <section class="section__container contact__container" id="contact">
+      <div class="logo">S</div>
+      <h2 class="section__header">Let's Talk!</h2>
+      <p class="section__description">
+        An open invitation to connect and explore collaborative opportunities.
+      </p>
+      <div class="contact__socials">
+        <a href="https://www.youtube.com/@mastermindgyan" target="_blank" rel="noopener noreferrer"><i class="ri-youtube-fill"></i></a>
+        <a href="https://www.instagram.com/mr_shubham_yt_kothi/" target="_blank" rel="noopener noreferrer"><i class="ri-instagram-line"></i></a>
+        <a href="mailto:shubhamvishwakarma112001@gmail.com"><i class="ri-mail-line"></i></a>
+      </div>
+    </section>
+    <footer class="footer">
+     Copyright © 2025 Made with &#9829; by Pranav <a href="https://www.instagram.com/sprnv007/" target="_blank" rel="noopener noreferrer"><i class="ri-instagram-line"></i></a>  All rights reserved.
+     
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Admin Login</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" required />
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn" id="loginCancel">Cancel</button>
+            <button type="submit" class="btn">Login</button>
+          </div>
+          <p
+            id="loginError"
+            style="color: var(--primary-color); margin-top: 1rem; text-align: center;"
+          ></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Add Item Modal -->
+    <div id="itemModal" class="modal hidden">
+      <div class="modal-content">
+        <h2 id="modalTitle">Add New Item</h2>
+        <form id="itemForm">
+          <div class="form-group">
+            <label for="imageFile">Upload File</label>
+            <input
+              type="file"
+              id="imageFile"
+              name="imageFile"
+              accept="image/*,video/*"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="itemCategory">Category</label>
+            <select id="itemCategory" required>
+              <option value="wedding_photos">Wedding Photo</option>
+              <option value="birthday_photos">Birthday Photo</option>
+              <option value="wedding_videos">Wedding Video</option>
+              <option value="portraits">Portrait</option>
+            </select>
+          </div>
+          <div id="uploadProgress" class="hidden">Uploading, please wait...</div>
+          <div class="modal-actions">
+            <button type="button" class="btn" id="itemCancel">Cancel</button>
+            <button type="submit" class="btn">Save Item</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      const ADMIN_USER = "studioshubham@gmail.com";
+      const ADMIN_PASS = "studiosubham";
+      let isAdminLoggedIn = false;
+      let portfolioItems = [];
+
+      const loginBtn = document.getElementById("loginBtn");
+      const logoutBtn = document.getElementById("logoutBtn");
+      const loginModal = document.getElementById("loginModal");
+      const loginForm = document.getElementById("loginForm");
+      const loginCancel = document.getElementById("loginCancel");
+      const loginError = document.getElementById("loginError");
+
+      const itemModal = document.getElementById("itemModal");
+      const itemForm = document.getElementById("itemForm");
+      const itemCancel = document.getElementById("itemCancel");
+      const modalTitle = document.getElementById("modalTitle");
+      const itemCategoryInput = document.getElementById("itemCategory");
+      const uploadProgress = document.getElementById("uploadProgress");
+
+      const addItemBtns = document.querySelectorAll(".add-item-btn");
+      const portfolioGrids = {
+        wedding_photos: document.getElementById("wedding_photos_grid"),
+        birthday_photos: document.getElementById("birthday_photos_grid"),
+        wedding_videos: document.getElementById("wedding_videos_grid"),
+        portraits: document.getElementById("portraits_grid"),
+      };
+
+      async function handleFetchErrors(response) {
+        if (!response.ok) {
+          const contentType = response.headers.get("content-type");
+          let error;
+          if (contentType && contentType.indexOf("application/json") !== -1) {
+            const errorData = await response.json();
+            error = new Error(
+              errorData.message ||
+                errorData.error ||
+                "An unknown server error occurred."
+            );
+          } else {
+            const errorText = await response.text();
+            console.error("Server returned a non-JSON response:", errorText);
+            error = new Error("The server returned an unexpected response.");
+          }
+          throw error;
+        }
+        return response.json();
+      }
+
+      async function fetchPortfolioItems() {
+        try {
+          const data = await fetch("/api/portfolio").then(handleFetchErrors);
+          portfolioItems = data.resources;
+          renderPortfolio();
+        } catch (error) {
+          console.error("Error fetching portfolio items:", error);
+          alert(`Error loading portfolio: ${error.message}`);
+        }
+      }
+
+      loginBtn.addEventListener("click", () =>
+        loginModal.classList.remove("hidden")
+      );
+      logoutBtn.addEventListener("click", () => {
+        isAdminLoggedIn = false;
+        updateUIForAuthState();
+      });
+      loginCancel.addEventListener("click", () =>
+        loginModal.classList.add("hidden")
+      );
+
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = loginForm.email.value;
+        const password = loginForm.password.value;
+        loginError.textContent = "";
+
+        if (email === ADMIN_USER && password === ADMIN_PASS) {
+          isAdminLoggedIn = true;
+          updateUIForAuthState();
+          loginModal.classList.add("hidden");
+          loginForm.reset();
+        } else {
+          loginError.textContent = "Invalid credentials. Please try again.";
+        }
+      });
+
+      function updateUIForAuthState() {
+        if (isAdminLoggedIn) {
+          loginBtn.classList.add("hidden");
+          logoutBtn.classList.remove("hidden");
+          addItemBtns.forEach((btn) => btn.classList.remove("hidden"));
+        } else {
+          loginBtn.classList.remove("hidden");
+          logoutBtn.classList.add("hidden");
+          addItemBtns.forEach((btn) => btn.classList.add("hidden"));
+        }
+        renderPortfolio();
+      }
+
+      function renderPortfolio() {
+        Object.values(portfolioGrids).forEach((grid) => (grid.innerHTML = ""));
+        if (!portfolioItems) return;
+
+        portfolioItems.forEach((item) => {
+          const grid = portfolioGrids[item.category];
+          if (!grid) return;
+
+          const card = document.createElement("div");
+          const isVideo = item.secure_url.match(/\.(mp4|mov|avi|mkv)$/i);
+          card.className = "portfolio__card";
+
+          let adminControls = "";
+          if (isAdminLoggedIn) {
+            adminControls = `
+              <div class="portfolio-card-controls">
+                <button class="delete-btn" data-id="${item.public_id}"><i class="ri-delete-bin-line"></i></button>
+              </div>
+            `;
+          }
+
+          let mediaElement = "";
+          if (isVideo) {
+            card.classList.add("video__card");
+            mediaElement = `
+                <video src="${item.secure_url}" controls muted loop playsinline poster=""></video>
+              `;
+          } else {
+            mediaElement = `<img src="${item.secure_url}" alt="${item.category} photo" />`;
+          }
+
+          card.innerHTML = `${adminControls}${mediaElement}`;
+          grid.appendChild(card);
+        });
+
+        document
+          .querySelectorAll(".delete-btn")
+          .forEach((btn) => btn.addEventListener("click", handleDeleteItem));
+      }
+
+      function openItemModal(category) {
+        itemForm.reset();
+        itemCategoryInput.value = category;
+        modalTitle.textContent = "Add New Item";
+        itemModal.classList.remove("hidden");
+      }
+
+      addItemBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const category = btn.dataset.category;
+          openItemModal(category);
+        });
+      });
+
+      itemCancel.addEventListener("click", () =>
+        itemModal.classList.add("hidden")
+      );
+
+      itemForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        uploadProgress.classList.remove("hidden");
+
+        const formData = new FormData();
+        const imageFile = document.getElementById("imageFile").files[0];
+        const category = document.getElementById("itemCategory").value;
+
+        if (!imageFile) {
+          alert("Please select a file to upload.");
+          uploadProgress.classList.add("hidden");
+          return;
+        }
+
+        formData.append("imageFile", imageFile);
+        formData.append("category", category);
+
+        try {
+          await fetch("/api/upload", {
+            method: "POST",
+            body: formData,
+          }).then(handleFetchErrors);
+
+          await fetchPortfolioItems();
+          itemModal.classList.add("hidden");
+        } catch (error) {
+          console.error("Error uploading file:", error);
+          alert(`An error occurred during upload: ${error.message}`);
+        } finally {
+          uploadProgress.classList.add("hidden");
+        }
+      });
+
+      async function handleDeleteItem(e) {
+        const button = e.target.closest(".delete-btn");
+        if (!button) return;
+
+        const public_id = button.dataset.id;
+        if (
+          confirm(
+            "Are you sure you want to delete this item? This cannot be undone."
+          )
+        ) {
+          try {
+            await fetch("/api/delete", {
+              method: "DELETE",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ public_id }),
+            }).then(handleFetchErrors);
+
+            await fetchPortfolioItems();
+          } catch (error) {
+            console.error("Error deleting item:", error);
+            alert(`Could not delete item: ${error.message}`);
+          }
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", fetchPortfolioItems);
+
+      const navLinks = document.getElementById("nav-links");
+      const menuBtn = document.getElementById("menu-btn");
+      if (menuBtn) {
+        const menuBtnIcon = menuBtn.querySelector("i");
+        menuBtn.addEventListener("click", () => {
+          navLinks.classList.toggle("open");
+          const isOpen = navLinks.classList.contains("open");
+          menuBtnIcon.setAttribute(
+            "class",
+            isOpen ? "ri-close-line" : "ri-menu-3-line"
+          );
+        });
+        navLinks.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          menuBtnIcon.setAttribute("class", "ri-menu-3-line");
+        });
+      }
+      const scrollRevealOption = {
+        distance: "50px",
+        origin: "bottom",
+        duration: 1000,
+      };
+      ScrollReveal().reveal(".header__content h1", { ...scrollRevealOption });
+      ScrollReveal().reveal(".header__content .section__description", {
+        ...scrollRevealOption,
+        delay: 500,
+      });
+      ScrollReveal().reveal(".header__content .header__btn", {
+        ...scrollRevealOption,
+        delay: 1000,
+      });
+    </script>
+  </body>
+</html>
+
