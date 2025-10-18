@@ -19,9 +19,15 @@
       "continue": true
     },
     {
+      "src": "/styles.css",
+      "headers": {
+        "cache-control": "public, max-age=86400, must-revalidate"
+      },
+      "continue": true
+    },
+    {
       "src": "/(.*)",
       "dest": "/components/$1"
     }
   ]
 }
-
