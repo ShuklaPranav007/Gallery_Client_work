@@ -174,5 +174,5 @@ const server = app.listen(PORT, () => {
     console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
 
-server.setTimeout(600000); // Set timeout to 10 minutes (600,000 milliseconds)
+server.setTimeout(600000); 
 
