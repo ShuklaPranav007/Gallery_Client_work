@@ -27,7 +27,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/components/$1"
+      "dest": "/components/index.html"
     }
   ]
 }
